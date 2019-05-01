@@ -16,12 +16,15 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     Button payemnt;
     private GoogleMap mMap;
-
+    String Start, End;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         payemnt = findViewById(R.id.paymentButton);
+        Intent i  = getIntent();
+        Start= i.getStringExtra("start");
+        End = i.getStringExtra("end");
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -31,6 +34,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onClick(View view) {
                 Intent intent =new Intent(MapsActivity.this,PaymentGateway.class);
+                intent.putExtra("start",Start);
+                intent.putExtra("end",End);
                 startActivity(intent);
             }
         });
@@ -43,18 +48,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(12.9675, 77.7141);
+        LatLng sydney = new LatLng(13.9675, 77.7141);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Toll Booth"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
-        LatLng booth1 = new LatLng(11.9675, 74.7141);
+        LatLng booth1 = new LatLng(13.9675, 74.7141);
         mMap.addMarker(new MarkerOptions().position(booth1).title("Toll Booth"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(booth1));
         LatLng booth2 = new LatLng(13.9675, 79.7141);
         mMap.addMarker(new MarkerOptions().position(booth2).title("Toll Booth"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(booth2));
 
-        LatLng booth3 = new LatLng(15.9675, 81.7141);
+        LatLng booth3 = new LatLng(17.3850, 78.4867);
         mMap.addMarker(new MarkerOptions().position(booth3).title("Toll Booth"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(booth3));
     }
