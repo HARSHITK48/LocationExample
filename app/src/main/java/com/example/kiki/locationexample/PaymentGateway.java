@@ -48,6 +48,7 @@ public class PaymentGateway extends AppCompatActivity {
                 intent.putExtra("tripCharges",tripCharges);
                 intent.putExtra("name",paymentMadeBy.getText().toString());
                 intent.putExtra("Payment Method",PaymentModeSpinner.getSelectedItem().toString());
+                startActivity(intent);
             }
         });
 
