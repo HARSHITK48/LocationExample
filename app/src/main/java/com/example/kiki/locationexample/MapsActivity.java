@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -16,16 +17,19 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     Button payemnt;
     private GoogleMap mMap;
+    TextView tripChargesTextView;
     String Start, End;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         payemnt = findViewById(R.id.paymentButton);
+        tripChargesTextView = findViewById(R.id.displayChargesOnMapActivity);
         Intent i  = getIntent();
         Start= i.getStringExtra("start");
         End = i.getStringExtra("end");
-
+       final double tripCharges = i.getDoubleExtra("Trip Charges", 0d);
+        tripChargesTextView.append(""+tripCharges);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -36,6 +40,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Intent intent =new Intent(MapsActivity.this,PaymentGateway.class);
                 intent.putExtra("start",Start);
                 intent.putExtra("end",End);
+                intent.putExtra("tripCharges",tripCharges);
                 startActivity(intent);
             }
         });

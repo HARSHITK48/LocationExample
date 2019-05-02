@@ -34,7 +34,8 @@
         android:layout_marginTop="30dp"
         android:gravity="center"
         android:text="Enter Vehicle"
-        android:textColor="#aaa"
+
+        android:textColor="#fff"
         android:textSize="14sp" />
 
     <EditText
@@ -45,6 +46,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="16dp"
+        android:background="@color/colorAccent"
         android:gravity="center"
         android:hint="Enter Vehicle Model here"
         android:textColor="#fff"
@@ -57,11 +59,12 @@
         android:layout_marginTop="24dp"
         android:gravity="center"
         android:text="Enter Vehicle Color"
-        android:textColor="#aaa"
+        android:textColor="#fff"
         android:textSize="14sp" />
 
     <EditText
         android:layout_width="match_parent"
+        android:background="@color/colorAccent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:id="@+id/ed2"
@@ -69,7 +72,7 @@
         android:layout_marginRight="16dp"
         android:drawableLeft="@drawable/ic_color_lens_black_24dp"
         android:gravity="center"
-        android:hint="enter color"
+        android:hint="Enter Color"
         android:textColor="#fff"
         android:textColorHint="#999"
         android:textSize="14sp" />
@@ -80,7 +83,7 @@
         android:layout_marginTop="24dp"
         android:gravity="center"
         android:text="Enter Number Plate"
-        android:textColor="#aaa" />
+        android:textColor="#fff" />
 
     <EditText
         android:layout_width="match_parent"
@@ -93,6 +96,7 @@
         android:drawableLeft="@drawable/ic_text_fields_black_24dp"
         android:hint="eg: RJ 14 DR 5221"
         android:textColor="#fff"
+        android:background="@color/colorAccent"
         android:textColorHint="#999"
         android:textSize="14sp" />
     <TextView
@@ -100,8 +104,30 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:gravity="center"
+        android:text="Select Vehicle Type"
+        android:textColor="#fff"
+        android:textSize="14sp"/>
+    <Spinner
+        android:layout_width="match_parent"
+        android:id="@+id/vehicleTypeSpinner"
+
+        android:entries="@array/Vehicle_Type"
+        android:background="@color/colorAccent"
+
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:textAlignment="center"
+
+        android:layout_height="wrap_content">
+
+    </Spinner>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
         android:text="Start Point"
-        android:textColor="#aaa" />
+        android:textColor="#fff" />
 
     <EditText
         android:layout_width="match_parent"
@@ -113,6 +139,7 @@
         android:gravity="center"
         android:drawableLeft="@drawable/ic_my_location_black_24dp"
         android:hint="eg: Current Location"
+        android:background="@color/colorAccent"
         android:textColor="#fff"
         android:textColorHint="#999"
         android:textSize="14sp" />
@@ -122,7 +149,7 @@
         android:layout_marginTop="24dp"
         android:gravity="center"
         android:text="End Point"
-        android:textColor="#aaa" />
+        android:textColor="#fff" />
 
     <EditText
         android:layout_width="match_parent"
@@ -131,12 +158,27 @@
         android:layout_marginTop="8dp"
         android:id="@+id/ed5"
         android:layout_marginRight="16dp"
+        android:background="@color/colorAccent"
         android:gravity="center"
         android:drawableLeft="@drawable/ic_edit_location_black_24dp"
         android:hint="eg: Hyderabad"
         android:textColor="#fff"
         android:textColorHint="#999"
         android:textSize="14sp" />
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/roundTripCheckbox"
+        android:textColor="#aaa"
+        android:background="@color/colorAccent"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Round Trip"
+        android:textSize="14sp"
+        />
     <Button
         android:id="@+id/submit_details"
         android:layout_width="match_parent"

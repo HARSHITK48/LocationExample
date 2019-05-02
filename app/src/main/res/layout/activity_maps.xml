@@ -11,6 +11,19 @@
     android:layout_width="match_parent"
     android:layout_height="600dp"
     tools:context=".MapsActivity" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Charges:"
+        android:id="@+id/displayChargesOnMapActivity"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:background="@color/colorAccent"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        />
 
     <Button
         android:layout_width="match_parent"
