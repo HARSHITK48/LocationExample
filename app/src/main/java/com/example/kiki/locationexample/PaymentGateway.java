@@ -14,8 +14,10 @@ import java.util.Locale;
 
 public class PaymentGateway extends AppCompatActivity {
     Button button ;
+    double tripCharges;
     TextView tripChargesTextView;
     Spinner PaymentModeSpinner;
+    String numberPlate;
     EditText paymentMadeBy;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,23 +26,15 @@ public class PaymentGateway extends AppCompatActivity {
         Intent i  = getIntent();
         final String StartPoint = i.getStringExtra("start");
          final String EndPoint  = i.getStringExtra("end");
-         final double tripCharges  = i.getDoubleExtra("tripCharges",0d);
+       tripCharges  = i.getDoubleExtra("tripCharges",0d);
         button = findViewById(R.id.button);
         tripChargesTextView=findViewById(R.id.tripChargesInPaymentGateway);
         tripChargesTextView.append(""+tripCharges);
+        numberPlate=i.getStringExtra("numberPlate");
         paymentMadeBy=findViewById(R.id.paymentMadeBy);
         PaymentModeSpinner=findViewById(R.id.PaymentMethodSpinner);
 
-        /*button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?saddr=%f,%f(%s)&daddr=%f,%f (%s)", 12.9675, 77.7141, StartPoint, 11.9675, 74.7141, EndPoint);
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-                intent.setPackage("com.google.android.apps.maps");
-                startActivity(intent);
-            }
-        });
-        */
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,6 +42,9 @@ public class PaymentGateway extends AppCompatActivity {
                 intent.putExtra("tripCharges",tripCharges);
                 intent.putExtra("name",paymentMadeBy.getText().toString());
                 intent.putExtra("Payment Method",PaymentModeSpinner.getSelectedItem().toString());
+                intent.putExtra("start",StartPoint);
+                intent.putExtra("end",EndPoint);
+                intent.putExtra("numberPlate",numberPlate);
                 startActivity(intent);
             }
         });

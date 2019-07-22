@@ -1,6 +1,7 @@
 package com.example.kiki.locationexample;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +18,7 @@ public class PersonalDetails extends AppCompatActivity {
     Button selectBoothButton,submitDetailsButton;
     EditText ed1,ed2,ed3,ed4,ed5;
     Spinner vehicleTypeSpinner;
-    String startPoint,endPoint;
+    String startPoint,endPoint,numberPlate;
     CheckBox roundTripCheckbox;
     Double tripCharges=0.0;
     @Override
@@ -42,6 +43,7 @@ public class PersonalDetails extends AppCompatActivity {
                 intent.putExtra("start",startPoint);
                 intent.putExtra("end",endPoint);
                 CalculateCharges();
+                intent.putExtra("numberPlate",numberPlate);
                 intent.putExtra("Trip Charges",tripCharges);
                 startActivity(intent);
 
@@ -52,16 +54,21 @@ public class PersonalDetails extends AppCompatActivity {
             public void onClick(View view) {
                 ed1.setText("");
                 ed2.setText("");
+                numberPlate=ed3.getText().toString();
                 ed3.setText("");
                 startPoint = ed4.getText().toString();
                 endPoint=ed5.getText().toString();
+
                 ed4.setText("");
                 ed5.setText("");
 
-                Toast.makeText(PersonalDetails.this, "Details Successfully Submitted.\nProceed to booths", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PersonalDetails.this, "Details Successfully Submitted.\nProceed to booths", Toast.LENGTH_LONG).show();
 
             }
         });
+        if(roundTripCheckbox.isChecked()==true){
+            roundTripCheckbox.setBackgroundColor(Color.parseColor("#ffffff"));
+        }
 
 
     }
